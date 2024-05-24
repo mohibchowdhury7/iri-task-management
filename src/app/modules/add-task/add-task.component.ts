@@ -1,10 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { Task } from '../../interfaces';
-import { TaskService } from '../../services';
-import { ActivatedRoute } from '@angular/router';
+import { SnackBarService, TaskService } from '../../services';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-task',
@@ -17,6 +17,8 @@ export class AddTaskComponent implements OnInit {
   fb = inject(FormBuilder);
   taskService = inject(TaskService);
   route = inject(ActivatedRoute);
+  snackBar = inject(SnackBarService);
+  router = inject(Router);
 
   taskId!: number;
 
@@ -43,6 +45,7 @@ export class AddTaskComponent implements OnInit {
   onSubmit(): void {
     console.log(this.taskForm.value);
     if (this.taskForm.invalid) {
+      this.snackBar.warning('Please fill the required fields', 'Close');
       return;
     }
 
@@ -66,9 +69,15 @@ export class AddTaskComponent implements OnInit {
   addTask(task: Task): void {
     this.taskService.addTask(task);
     this.taskForm.reset();
+    this.snackBar.success('Task added successfully', 'Close');
+    this.router.navigate(['/']);
   }
 
   updateTask(task: Task): void {
     this.taskService.updateTask(task);
+    this.snackBar.success('Task updated successfully', 'Close');
+    this.router.navigate(['/']);
   }
+
+
 }

@@ -1,10 +1,9 @@
 <div class="custom-container task-list-section">
   <h2 class="title">Task List</h2>
   <div class="task-list-header">
-    <!-- add a search field and a button to add a new task -->
     <div style="width: 400px;">
       <mat-form-field appearance="outline" style="width: 100%;">
-        <input matInput placeholder="Search by name" [(ngModel)]="searchTerm" (ngModelChange)="searchTasks()">
+        <input matInput placeholder="Search by Title" [(ngModel)]="searchTerm" (ngModelChange)="searchTasks()">
       </mat-form-field>
     </div>
     <div >

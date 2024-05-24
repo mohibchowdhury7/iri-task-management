@@ -4,7 +4,7 @@ import { taskExistsGuard } from './core';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/task-list/task-list.component').then(m => m.TaskListComponent),
+    loadComponent: () => import('./modules/task-list/task-list.component').then(m => m.TaskListComponent),
   },
   {
     path: 'add-task',

@@ -9,7 +9,11 @@
 }
 
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
+
 body {
   display: block;
   width: 100%;
@@ -27,7 +31,7 @@ body {
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
-.title{
+.title {
   font-size: 2rem;
   font-weight: 700;
   color: #333;
@@ -48,3 +52,29 @@ body {
     max-width: 1400px;
   }
 }
+
+// ::ng-deep{
+.mat-mdc-snack-bar-container.warning .mdc-snackbar__surface {
+  background-color: #d9ab36;
+}
+
+.mat-mdc-snack-bar-container.warning .mdc-snackbar__label {
+  color: black;
+}
+
+.mat-mdc-snack-bar-container.success .mdc-snackbar__surface {
+  background-color: #26cc4d;
+}
+
+.mat-mdc-snack-bar-container.success .mdc-snackbar__label,
+.mat-mdc-snack-bar-container.error .mdc-snackbar__label {
+  color: rgb(255, 255, 255);
+}
+
+.mat-mdc-snack-bar-container.error .mdc-snackbar__surface {
+  background-color: #d63444;
+}
+
+// .mat-mdc-snack-bar-container.error .mdc-snackbar__label {
+//   color: rgb(255, 255, 255);
+// }
