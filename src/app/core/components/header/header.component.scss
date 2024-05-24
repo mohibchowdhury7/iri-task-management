@@ -1,0 +1,13 @@
+.header-section{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #d1e5f9;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  .active {
+    background-color: #3f51b5;
+    color: white;
+  }
+}

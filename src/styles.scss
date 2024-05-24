@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;700&family=Marko+One&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html, body { height: 100%; }
+body {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Manrope', sans-serif;
+  font-smooth: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+.title{
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+.custom-container {
+  display: block;
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  padding: 0 30px;
+}
+
+/* Responsive CSS */
+@media(max-width:1400px) {
+  .custom-container {
+    max-width: 1400px;
+  }
+}

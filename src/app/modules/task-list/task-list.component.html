@@ -1,0 +1,34 @@
+<div class="custom-container task-list-section">
+  <h2 class="title">Task List</h2>
+  <div class="task-list-header">
+    <!-- add a search field and a button to add a new task -->
+    <div style="width: 400px;">
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <input matInput placeholder="Search by name" [(ngModel)]="searchTerm" (ngModelChange)="searchTasks()">
+      </mat-form-field>
+    </div>
+    <div >
+      <mat-button-toggle-group #colorToggle="matButtonToggleGroup"
+                               [(ngModel)]="filterBy"
+                               aria-label="Change color"
+                               (ngModelChange)="onValueChange()">
+        <mat-button-toggle *ngFor="let data of filterTypes" [value]="data.value">{{data.label}}</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <div>
+    @defer() {
+      @if ((tasks$ | async)?.length) {
+        @for (task of tasks$ | async; track task.id) {
+          <app-task-item [task]="task"></app-task-item>
+          }
+      }
+      @else {
+        <p>No tasks found</p>
+      }
+    }
+    @loading {
+      <mat-spinner></mat-spinner>
+    }
+  </div>
+</div>

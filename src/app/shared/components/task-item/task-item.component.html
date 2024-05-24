@@ -1,0 +1,11 @@
+<div class="task-item-section" [style.backgroundColor]="task.completed ? '#d1f9d3' : '#d1e5f9'">
+  <div class="task-item-header">
+    <h3>{{ task.title }} - <span>{{ task.completed ? 'Completed' : 'Pending' }}</span></h3>
+    <p>{{ task.description }}</p>
+  </div>
+  <div class="task-item-footer">
+    <button mat-flat-button color="primary" (click)="toggleCompletion(task)">Mark as {{task.completed ? 'Pending' : 'Complete'}}</button>
+    <button mat-flat-button color="accent" [routerLink]="['edit-task', task.id]">Edit</button>
+    <button mat-flat-button color="warn" (click)="removeTask(task.id!)">Delete</button>
+  </div>
+</div>

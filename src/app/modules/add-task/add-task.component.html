@@ -1,0 +1,22 @@
+<div>
+  <div class="custom-container add-task-section">
+    <h2 class="title">{{taskId ? 'Edit' : 'Add'}} Task</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div class="form-field-section">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <input matInput placeholder="Title" formControlName="title">
+          @if (taskForm.get('title')?.hasError('required')) {
+            <mat-error>
+              Title is required
+            </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Leave a comment</mat-label>
+          <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">{{taskId ? 'Update' : 'Save'}}</button>
+      </div>
+    </form>
+  </div>
+</div>
